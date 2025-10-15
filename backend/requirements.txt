@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+torch
+torchvision
+opencv-python-headless
+numpy
+Pillow
+librosa
+fpdf2

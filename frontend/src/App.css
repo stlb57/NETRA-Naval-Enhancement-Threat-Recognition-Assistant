@@ -1,0 +1,440 @@
+/* --- Global & App Container (Holographic Theme) --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400&display.swap');
+
+@keyframes aurora {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: linear-gradient(-45deg, #0a101f, #1c3d5a, #0a192f, #233554);
+    background-size: 400% 400%;
+    animation: aurora 18s ease infinite;
+    color: #e0fbfc;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* --- Custom Scrollbar Styling --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(13, 27, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(66, 133, 244, 0.4);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(66, 133, 244, 0.7);
+}
+
+/* --- Sidebar Navigation (Glassmorphism) --- */
+.sidebar {
+    width: 260px;
+    background: rgba(13, 27, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(66, 133, 244, 0.2);
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    box-shadow: 5px 0 35px rgba(0,0,0,0.4);
+    z-index: 10;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(66, 133, 244, 0.3);
+}
+
+.sidebar-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+    color: #e0fbfc;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.sidebar-header p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 8px;
+    white-space: normal;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-nav button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #b0c4de;
+    padding: 15px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar-nav button:hover {
+    background-color: rgba(66, 133, 244, 0.15);
+    color: white;
+    transform: translateX(5px);
+}
+
+.sidebar-nav button.active {
+    background-color: #4285f4;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(66, 133, 244, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav button svg {
+    font-size: 1.2rem;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow: auto;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* --- Page Container Styling --- */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px; /* Provides consistent spacing between elements on a page */
+}
+
+.page-header {
+    margin: 0;
+    color: #e0fbfc;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(66, 133, 244, 0.3);
+    flex-shrink: 0;
+}
+
+/* --- Themed Content Styling --- */
+h3, h4 {
+    margin: 0 0 10px 0;
+    color: #a7d8ff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(66, 133, 244, 0.2);
+    padding-bottom: 8px;
+}
+
+.form-button {
+    background-color: rgba(66, 133, 244, 0.2);
+    border: 1px solid rgba(66, 133, 244, 0.5);
+    color: #e0fbfc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.form-button:hover {
+    background-color: rgba(66, 133, 244, 0.4);
+    box-shadow: 0 0 10px rgba(66, 133, 244, 0.4);
+}
+
+.form-button.primary {
+    background-color: #34a853;
+    border-color: rgba(52, 168, 83, 0.7);
+}
+.form-button.primary:hover {
+    background-color: #41c265;
+    box-shadow: 0 0 10px rgba(52, 168, 83, 0.5);
+}
+
+.input-file-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-name-display {
+    font-style: italic;
+    color: #a7d8ff;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.placeholder-box {
+    flex-grow: 1;
+    border: 2px dashed rgba(66, 133, 244, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(224, 251, 252, 0.4);
+    text-align: center;
+    min-height: 150px;
+}
+
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+}
+.leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) brightness(0.8) contrast(1.2);
+}
+
+/* --- Component-Specific Theming --- */
+.stats-overlay {
+    display: flex;
+    gap: 20px;
+    background-color: rgba(13, 27, 42, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(66, 133, 244, 0.3);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+.stats-overlay strong {
+    color: #ffc107;
+    font-family: 'Orbitron', sans-serif;
+}
+.live-feed-layout {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+}
+.live-feed-layout > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.live-feed-layout video, .live-feed-layout canvas {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #000;
+}
+
+.timeline-container {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(66, 133, 244, 0.1);
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid rgba(66, 133, 244, 0.2);
+}
+.timeline-bar {
+    flex-grow: 1;
+    background-color: #4285f4;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    border-right: 1px solid rgba(13, 27, 42, 0.5);
+}
+.timeline-bar:hover {
+    opacity: 1.0;
+    box-shadow: 0 0 10px #4285f4;
+}
+.timeline-loading {
+    width: 100%;
+    text-align: center;
+    color: #a7d8ff;
+    align-self: center;
+}
+
+.analysis-layout {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 20px;
+    flex-grow: 1;
+    height: 1px; /* Fix for grid growing out of container */
+}
+.sighting-list {
+    overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sighting-item {
+    background: rgba(66, 133, 244, 0.05);
+    border: 1px solid rgba(66, 133, 244, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-shrink: 0;
+}
+.sighting-item img {
+    border-radius: 4px;
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.thermal-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a7d8ff;
+    font-weight: 500;
+    cursor: pointer;
+}
+.thermal-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #4285f4;
+}
+.comparison-slider-container {
+    flex-grow: 1;
+    min-height: 300px;
+}
+.comparison-slider-container > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(66, 133, 244, 0.3);
+}
+
+
+/* --- ADD THIS TO THE BOTTOM OF App.css --- */
+
+/* For Dashboard Charts */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 300px 300px;
+    gap: 20px;
+    height: 100%;
+}
+.dashboard-card {
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(66, 133, 244, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-card.full-width {
+    grid-column: 1 / -1; /* Span all columns */
+}
+.recharts-responsive-container {
+    flex-grow: 1;
+}
+.recharts-default-tooltip {
+    background-color: #0a101f !important;
+    border-color: rgba(66, 133, 244, 0.5) !important;
+}
+
+/* For System Health Page */
+.health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.health-card {
+    background: rgba(13, 27, 42, 0.7);
+    border: 1px solid rgba(66, 133, 244, 0.25);
+    border-radius: 8px;
+    padding: 20px;
+}
+.health-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.health-status-indicator {
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.health-status-indicator.online {
+    background-color: rgba(52, 168, 83, 0.3);
+    color: #34a853;
+}
+.health-status-indicator.offline {
+    background-color: rgba(220, 53, 69, 0.3);
+    color: #dc3545;
+}
+
+/* For Mission Planning Page */
+.planning-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 20px;
+    height: 100%;
+}
+.planning-form .form-group {
+    margin-bottom: 15px;
+}
+.planning-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a7d8ff;
+}
+.planning-form input, .planning-form textarea {
+    width: 100%;
+    background: rgba(13, 27, 42, 0.9);
+    border: 1px solid rgba(66, 133, 244, 0.3);
+    color: #e0fbfc;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* For Toastify Notifications */
+.Toastify__toast {
+    background: rgba(13, 27, 42, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(66, 133, 244, 0.3) !important;
+}
